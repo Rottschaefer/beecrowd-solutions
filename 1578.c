@@ -18,7 +18,7 @@ void get_column_max_size(int columns[], int m, long long int M[30][30]){
         for(int j = 0; j<m ;j++){
 
 
-            if(M[j][i] > max){
+            if(how_many_digits(M[j][i]) > max){
                 max = how_many_digits(M[j][i]);
             }
     }
