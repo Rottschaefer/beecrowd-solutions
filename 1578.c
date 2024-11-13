@@ -1,23 +1,14 @@
 #include <stdio.h>
+#include <math.h>
 
 
 int how_many_digits(int x){
-    int digits = 0;
 
-    if (x < 0) {
-        x = -x; 
+    if(x ==0){
+        return 0;
     }
 
-    if(x == 0){
-        return 1;
-    }
-
-    while(x > 0){
-        x = x/10;
-        digits++;
-    }
-
-    return digits;
+    return floor(log10(x))+1;
 }
 
 void get_column_max_size(int columns[], int m, long long int M[30][30]){
@@ -79,14 +70,14 @@ int main(){
     int m;
 
 
-    scanf("%i", &matriz_numbers);
+     scanf("%i", &matriz_numbers);
 
-    for(int i=0; i< matriz_numbers; i++){
-        scanf("%i", &m);
-        read_and_square(m,matriz);
-        print_matriz(m,matriz, i + 4);
-        printf("\n");
-    }
+     for(int i=0; i< matriz_numbers; i++){
+         scanf("%i", &m);
+         read_and_square(m,matriz);
+         print_matriz(m,matriz, i + 4);
+         printf("\n");
+     }
 
 
     
