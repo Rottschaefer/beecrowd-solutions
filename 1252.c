@@ -9,13 +9,14 @@ int partition(long int *v, int m, int esquerda, int direita){
     int odd_even = 0;
     int both_even = 0;
     int both_odd = 0;
+    int new_test = 0;
 
 
     while (esquerda < direita){
 
 
         while (*(v+esquerda)%m <= pivo%m && esquerda < direita)
-        {   
+        {
             same_mod = *(v+esquerda)%m == pivo%m;
 
             odd_even = same_mod && (*(v+esquerda)%2 == 0 && pivo%2 != 0) ; //different from rigth
@@ -24,18 +25,22 @@ int partition(long int *v, int m, int esquerda, int direita){
 
             both_odd = same_mod && (*(v+esquerda)%2 != 0 && pivo%2 != 0) && *(v+esquerda) < pivo;
 
+            // new_test =same_mod && ((*(v+esquerda)%2 == 0) || pivo%2 != 0);
+
+
+
 
             if (odd_even || both_even || both_odd)
             {
                 same_mod = 0;
                 break;
             }
-            
+
             esquerda++;
             same_mod = 0;
         }
         while (*(v+direita)%m >= pivo%m && direita > inicio)
-        {   
+        {
             same_mod = *(v+direita)%m == pivo%m;
 
             odd_even = same_mod && (*(v+direita)%2 != 0 && pivo%2 == 0); //different from left
@@ -49,7 +54,7 @@ int partition(long int *v, int m, int esquerda, int direita){
                 same_mod = 0;
                 break;
             }
-            
+
             direita--;
             same_mod = 0;
         }
