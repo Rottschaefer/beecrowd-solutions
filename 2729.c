@@ -62,9 +62,9 @@ void print_lista(Lista_de_compras* lista){
 void free_lista(Lista_de_compras* lista){
     Lista_de_compras* ant;
     while(lista != NULL){
-        ant = lista;
+        ant = lista->prox;
         free(lista);
-        lista = lista->prox;
+        lista = ant;
     }
 }
 int main(){
